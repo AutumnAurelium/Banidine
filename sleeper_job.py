@@ -16,7 +16,7 @@ if __name__ == '__main__':
         if type_name == "":
             continue
 
-        type_id = eve.get_item_id(type_name.title())
+        type_id = eve.get_item_id(type_name)
 
         if type_id == -1:
             print(f"Warning: Invalid item name: {type_name}")

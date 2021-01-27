@@ -13,7 +13,7 @@ PLEX
 Large Skill Injector
 Small Skill Injector
 Skill Extractor
-Hypercore
+HyperCore
 
 # Ores
 Arkonor
@@ -29,7 +29,7 @@ Kernite
 Mercoxit
 Omber
 Plagioclase
-Pyroxes
+Pyroxeres
 Rakovene
 Scordite
 Spodumain
