@@ -8,15 +8,15 @@ if __name__ == '__main__':
 
     response = requests.get("https://www.fuzzwork.co.uk/dump/latest/eve.db.bz2", stream=True)
 
-    print("Downloading EVE static data.")
-
-    with open("data/eve.db.bz2", 'wb') as f:
-        i = 0
-        for data in response.iter_content(chunk_size=4096):
-            i += len(data)
-            f.write(data)
-            sys.stdout.write(f"Data downloaded: {round(i / (1024 * 1024), 2)} MiB   \r")
-            sys.stdout.flush()
+    if input("Redownload data? (y/N): ").lower() == 'y':
+        print("Downloading EVE static data.")
+        with open("data/eve.db.bz2", 'wb') as f:
+            i = 0
+            for data in response.iter_content(chunk_size=4096):
+                i += len(data)
+                f.write(data)
+                sys.stdout.write(f"Data downloaded: {round(i / (1024 * 1024), 2)} MiB   \r")
+                sys.stdout.flush()
 
     print("Decompressing data.")
 
