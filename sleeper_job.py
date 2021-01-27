@@ -9,6 +9,29 @@ if __name__ == '__main__':
     with open("sleeper/watchlist.txt") as f:
         lines = f.readlines()
 
+    db = sqlite3.connect("sleeper/scraped_data.sqlite")
+    conn = db.cursor()
+
+    tableName = "marketOrders"
+    conn.execute(f"""
+        CREATE TABLE IF NOT EXISTS {tableName}(
+            OrderID int,
+            Duration time,
+            BuyOrder boolean,
+            Issued datetime,
+            LocationID int,
+            MinVolume int,
+            Price float,
+            Range varchar(16),
+            SystemID int,
+            TypeID int,
+            TypeName int,
+            VolumeRemaining int,
+            VolumeTotal int,
+            TimeCached datetime
+        )
+            """)
+
     for type_name in lines:
         type_name = type_name.strip()
         if type_name.startswith("#"):
@@ -24,29 +47,6 @@ if __name__ == '__main__':
 
         data = eve.get_market_orders(eve.get_region_id("The Forge"), type_id)
 
-        db = sqlite3.connect("sleeper/scraped_data.sqlite")
-        conn = db.cursor()
-
-        tableName = "marketOrders"
-
-        conn.execute(f"""
-    CREATE TABLE IF NOT EXISTS {tableName}(
-        OrderID int,
-        Duration time,
-        BuyOrder boolean,
-        Issued datetime,
-        LocationID int,
-        MinVolume int,
-        Price float,
-        Range varchar(16),
-        SystemID int,
-        TypeID int,
-        TypeName int,
-        VolumeRemaining int,
-        VolumeTotal int,
-        TimeCached datetime
-    )
-        """)
         for i in range(data.shape[0]):
             entry = data.iloc[i, :]
             conn.execute(f"""
