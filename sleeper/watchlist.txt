@@ -1,0 +1,37 @@
+# Minerals
+Tritanium
+Pyerite
+Mexallon
+Isogen
+Nocxium
+Zydrine
+Megacyte
+Morphite
+
+# Pilot's Services
+PLEX
+Large Skill Injector
+Small Skill Injector
+Skill Extractor
+Hypercore
+
+# Ores
+Arkonor
+Bezdnacine
+Bistot
+Crokite
+Dark Ochre
+Gneiss
+Hedbergite
+Hemorphite
+Jaspet
+Kernite
+Mercoxit
+Omber
+Plagioclase
+Pyroxes
+Rakovene
+Scordite
+Spodumain
+Talassonite
+Veldspar
